@@ -7,7 +7,13 @@ void main() {
   runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.red,
+          primaryColorDark: Colors.red.shade400,
+          accentColor: Colors.redAccent,
+          textSelectionHandleColor: Colors.redAccent,
+          toggleableActiveColor: Colors.redAccent),
       routes: {
         '/': (context) => PackagesPage(),
         '/info': (context) => PackageInfoPage()

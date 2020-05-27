@@ -1,18 +1,17 @@
 import 'package:http/http.dart';
 
-class Network {
+class Request {
   final String url;
   final Map<String, String> headers;
 
-  Network(this.url, this.headers);
+  Request(this.url, this.headers);
 
-  Future getData() async {
-    print('Calling uri: $url');
+  Future getResponse() async {
     Response response = await get(url, headers: headers);
     if (response.statusCode == 200) {
       return response.body;
     } else {
-      print(response.statusCode);
+      Exception(response.statusCode);
     }
   }
 }
